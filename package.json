@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "API CRUD de To-Do List (Node.js + Express) aplicando POO e SOLID",
   "main": "src/app.js",
+  "engines": {
+    "node": ">=22.13.0"
+  },
   "scripts": {
     "start": "node src/app.js",
     "dev": "nodemon src/app.js"
