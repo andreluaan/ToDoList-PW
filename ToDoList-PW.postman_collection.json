@@ -1,0 +1,81 @@
+{
+  "info": {
+    "name": "ToDoList-PW",
+    "description": "Coleção de testes das rotas CRUD de Tarefas",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:3000" },
+    { "key": "tarefaId", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "1. Criar tarefa (POST)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"titulo\": \"Estudar SOLID\",\n  \"descricao\": \"Revisar SRP e DIP\",\n  \"categoria\": \"Estudos\"\n}"
+        },
+        "url": { "raw": "{{baseUrl}}/tarefas", "host": ["{{baseUrl}}"], "path": ["tarefas"] }
+      }
+    },
+    {
+      "name": "2. Listar tarefas (GET coleção)",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "{{baseUrl}}/tarefas", "host": ["{{baseUrl}}"], "path": ["tarefas"] }
+      }
+    },
+    {
+      "name": "3. Buscar tarefa por id (GET item)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/tarefas/{{tarefaId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["tarefas", "{{tarefaId}}"]
+        }
+      }
+    },
+    {
+      "name": "4. Atualizar tarefa (PUT)",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"titulo\": \"Estudar SOLID a fundo\",\n  \"descricao\": \"Revisar SRP, OCP e DIP\",\n  \"categoria\": \"Estudos\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/tarefas/{{tarefaId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["tarefas", "{{tarefaId}}"]
+        }
+      }
+    },
+    {
+      "name": "5. Remover tarefa (DELETE)",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "{{baseUrl}}/tarefas/{{tarefaId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["tarefas", "{{tarefaId}}"]
+        }
+      }
+    },
+    {
+      "name": "Extra: Concluir tarefa (PATCH)",
+      "request": {
+        "method": "PATCH",
+        "url": {
+          "raw": "{{baseUrl}}/tarefas/{{tarefaId}}/concluir",
+          "host": ["{{baseUrl}}"],
+          "path": ["tarefas", "{{tarefaId}}", "concluir"]
+        }
+      }
+    }
+  ]
+}
