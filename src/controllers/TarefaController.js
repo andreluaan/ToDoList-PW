@@ -33,6 +33,14 @@ class TarefaController {
     }
   };
 
+  reabrir = (req, res) => {
+    try {
+      res.json(this.service.reabrirTarefa(req.params.id));
+    } catch (err) {
+      res.status(404).json({ erro: err.message });
+    }
+  };
+
   atualizar = (req, res) => {
     try {
       const tarefa = this.service.atualizarTarefa(req.params.id, req.body);

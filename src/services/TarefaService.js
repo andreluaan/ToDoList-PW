@@ -29,6 +29,12 @@ class TarefaService {
     return tarefa;
   }
 
+  reabrirTarefa(id) {
+    const tarefa = this.buscarTarefa(id);
+    tarefa.reabrir();
+    return tarefa;
+  }
+
   atualizarTarefa(id, { titulo, descricao, categoria }) {
     const tarefa = this.buscarTarefa(id);
     tarefa.atualizar({ titulo, descricao, categoria });
