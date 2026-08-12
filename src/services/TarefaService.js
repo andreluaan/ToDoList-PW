@@ -26,18 +26,21 @@ class TarefaService {
   concluirTarefa(id) {
     const tarefa = this.buscarTarefa(id);
     tarefa.concluir();
+    this.repository.salvar(tarefa);
     return tarefa;
   }
 
   reabrirTarefa(id) {
     const tarefa = this.buscarTarefa(id);
     tarefa.reabrir();
+    this.repository.salvar(tarefa);
     return tarefa;
   }
 
   atualizarTarefa(id, { titulo, descricao, categoria }) {
     const tarefa = this.buscarTarefa(id);
     tarefa.atualizar({ titulo, descricao, categoria });
+    this.repository.salvar(tarefa);
     return tarefa;
   }
 
